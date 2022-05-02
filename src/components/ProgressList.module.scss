@@ -1,0 +1,28 @@
+.collapsed {
+    height: 4.25rem;
+    overflow: hidden;
+}
+
+.boxLink {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+}
+
+.card {
+    min-height: 6.75rem !important;
+
+    &.noBottomPadding {
+        padding-bottom: 0 !important;
+    }
+
+    .list {
+        padding-top: 0 !important;
+
+        .small {
+            font-size: 0.75rem !important;
+        }
+    }
+}
