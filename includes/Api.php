@@ -38,7 +38,6 @@ class Api
 
     public static function mostRead($days = 30, $limit = 15)
     {
-        $offset = -60;
         $query = "
             query GetRumAnalyticsTopNs {
                 viewer {
@@ -56,8 +55,8 @@ class Api
 
         $variables = [
             [
-                'datetime_geq' => $offset ? gmdate('Y-m-d\TH:i:s\Z', strtotime($offset - $days . ' days')) : gmdate('Y-m-d\TH:i:s\Z', strtotime("-$days days")),
-                'datetime_leq' => $offset ? gmdate('Y-m-d\TH:i:s\Z', strtotime("$offset days")) : gmdate('Y-m-d\TH:i:s\Z')
+                'datetime_geq' => gmdate('Y-m-d\TH:i:s\Z', strtotime("-$days days")),
+                'datetime_leq' => gmdate('Y-m-d\TH:i:s\Z')
             ],
             [
                 'requestPath_neq' => '/'
@@ -245,19 +244,12 @@ class Api
                 'accountTag' => Settings::get()['accountTag'],
                 'filter'     => [
                     'AND' => array_merge([
-                        // [
-                        //     'datetime_geq' => '2022-01-20T16:45:57Z',
-                        //     'datetime_leq' => '2022-02-19T16:45:57Z'
-                        // ],
                         [
                             'siteTag_in' => [Settings::get()['siteTag']]
                         ],
                         [
                             'requestHost' => Settings::get()['frontendDomain']
                         ],
-                        // [
-                        //     'requestPath' => '/rusky-reholnik-viktor/'
-                        // ]
                     ], $variables),
                 ],
                 'order'     => 'sum_visits_DESC'
