@@ -236,7 +236,7 @@ class Api
         return $postsWithCount;
     }
 
-    public function graphql($query, $variables = [])
+    public static function graphql($query, $variables = [])
     {
         $gql = [
             'query' => $query,

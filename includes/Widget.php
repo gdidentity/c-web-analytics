@@ -40,7 +40,7 @@ class Widget
         }, 10, 2);
     }
 
-    public function spa($slug = '')
+    public static function spa($slug = '')
     {
         echo '<div id="cwa"></div>';
 

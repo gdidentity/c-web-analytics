@@ -16,7 +16,7 @@ class Admin
         }
     }
 
-    private function adminRender()
+    private static function adminRender()
     {
         add_action('admin_menu', function () {
             add_options_page(
@@ -43,7 +43,7 @@ class Admin
         });
     }
 
-    private function settings()
+    private static function settings()
     {
         add_action('admin_init', function () {
             register_setting(self::$option, self::$option);
