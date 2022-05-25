@@ -21,15 +21,19 @@ import { formatNumber } from './utils';
 declare global {
   interface Window {
     cwaSettings: CwaSettings
+    wpApiSettings: WpApiSettings
   }
 }
 
 interface CwaSettings {
-  root: string;
-  nonce: string;
   slug: string;
   frontendDomain: string
 }
+
+interface WpApiSettings {
+    root: string;
+    nonce: string;
+  }
 
 const RANGE_LIST = [
     {
@@ -47,7 +51,7 @@ const RANGE_LIST = [
 ]
 
 function App() {
-    const { cwaSettings } = window
+    const { cwaSettings, wpApiSettings } = window
     const [stats, setStats] = useState<any>(null)
     const [range, setRange] = useState({
         days: 30,
@@ -62,11 +66,11 @@ function App() {
     const getData = useCallback( async ( endpoint: string, from: string, to: string, limit: number = 15 ) => {
         setIsLoading(true)
         const headers = new Headers()
-        headers.set('X-WP-Nonce', cwaSettings?.nonce);
+        headers.set('X-WP-Nonce', wpApiSettings?.nonce);
 
         const slug = cwaSettings?.slug ? `&slug=${cwaSettings?.slug}` : ''
 
-        let response = await fetch(`${cwaSettings?.root}${endpoint}?from=${from}&to=${to}&limit=${limit}${slug}`, {
+        let response = await fetch(`${wpApiSettings?.root}${endpoint}?from=${from}&to=${to}&limit=${limit}${slug}`, {
           headers
         }).catch(() => setIsLoading(false))
         // const response = await fetch('/mock.json')
@@ -75,7 +79,7 @@ function App() {
 
         setStats(stats)
         setIsLoading(false)
-    }, [setStats, cwaSettings, setIsLoading])
+    }, [setStats, cwaSettings, wpApiSettings, setIsLoading])
 
     useEffect(() => {
         getData('cwa/v1/stats', range?.from, range?.to)

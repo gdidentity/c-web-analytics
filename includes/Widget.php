@@ -58,8 +58,6 @@ class Widget
         }
 
         wp_localize_script('cwa-1', 'cwaSettings', [
-            'root' => esc_url_raw(rest_url()),
-            'nonce' => wp_create_nonce('wp_rest'),
             'slug' => $slug,
             'frontendDomain' => Settings::get()['frontendDomain']
         ]);
