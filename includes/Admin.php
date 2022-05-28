@@ -1,6 +1,6 @@
 <?php
 
-namespace GdIdentity\CloudflareWebAnalytics;
+namespace CWebAnalytics;
 
 class Admin
 {
@@ -21,7 +21,7 @@ class Admin
                 'Cloudflare Web Analytics',
                 'Cloudflare Web Analytics',
                 'manage_options',
-                'cloudflare-web-analytics',
+                'c-web-analytics',
                 function () {
                     if (!current_user_can('manage_options')) {
                         wp_die(__('You do not have sufficient permissions to access this page.'));

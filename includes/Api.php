@@ -1,8 +1,8 @@
 <?php
 
-namespace GdIdentity\CloudflareWebAnalytics;
+namespace CWebAnalytics;
 
-use GdIdentity\CloudflareWebAnalytics\Settings;
+use CWebAnalytics\Settings;
 use WP_Error;
 use WP_REST_Request;
 use WP_REST_Response;

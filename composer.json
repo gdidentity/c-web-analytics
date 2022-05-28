@@ -1,14 +1,14 @@
 {
-    "name": "gdidentity/cloudflare-web-analytics",
+    "name": "gdidentity/c-web-analytics",
     "type": "wordpress-plugin",
     "autoload": {
         "psr-4": {
-            "GdIdentity\\CloudflareWebAnalytics\\": "includes/"
+            "CWebAnalytics\\": "includes/"
         }
     },
     "authors": [
         {
-            "name": "Jakub Bebjak",
+            "name": "GD IDENTITY",
             "email": "jakub.bebjak@gdidentity.sk"
         }
     ],

@@ -1,12 +1,13 @@
 <?php
 
-namespace GdIdentity\CloudflareWebAnalytics;
+namespace CWebAnalytics;
 
-class Settings {
+class Settings
+{
+    public static $optionName = 'cwa';
 
-	public static $optionName = 'cwa';
-
-	public static function get () {
-		return get_option( self::$optionName );
-	}
+    public static function get()
+    {
+        return get_option(self::$optionName);
+    }
 }

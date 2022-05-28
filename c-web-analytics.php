@@ -19,31 +19,31 @@
 defined('ABSPATH') || exit;
 
 
-if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
+if (! class_exists('CWA')) :
 
     /**
-     * This is the one true GdIdentity_CloudflareWebAnalytics class
+     * This is the one true CWA class
      */
-    final class GdIdentity_CloudflareWebAnalytics
+    final class CWA
     {
 
         /**
-         * Stores the instance of the GdIdentity_CloudflareWebAnalytics class
+         * Stores the instance of the CWebAnalytics class
          *
          * @since 0.0.1
          *
-         * @var GdIdentity_CloudflareWebAnalytics The one true GdIdentity_CloudflareWebAnalytics
+         * @var CWebAnalytics The one true CWebAnalytics
          */
         private static $instance;
 
         /**
-         * The instance of the GdIdentity_CloudflareWebAnalytics object
+         * The instance of the CWebAnalytics object
          *
          * @since 0.0.1
          *
-         * @return GdIdentity_CloudflareWebAnalytics The one true GdIdentity_CloudflareWebAnalytics
+         * @return CWebAnalytics The one true CWebAnalytics
          */
-        public static function instance(): self
+        public static function instance()
         {
             if (! isset(self::$instance) && ! (is_a(self::$instance, __CLASS__))) {
                 self::$instance = new self();
@@ -59,11 +59,11 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
             /**
              * Fire off init action.
              *
-             * @param GdIdentity_CloudflareWebAnalytics $instance The instance of the GdIdentity_CloudflareWebAnalytics class
+             * @param CWebAnalytics $instance The instance of the CWebAnalytics class
              */
-            do_action('gdidentity_cwa_init', self::$instance);
+            do_action('cwa_init', self::$instance);
 
-            // Return the GdIdentity_CloudflareWebAnalytics Instance.
+            // Return the CWebAnalytics Instance.
             return self::$instance;
         }
 
@@ -81,8 +81,8 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
             _doing_it_wrong(
                 __FUNCTION__,
                 esc_html__(
-                    'The GdIdentity_CloudflareWebAnalytics class should not be cloned.',
-                    'cloudflare-web-analytics'
+                    'The CWebAnalytics class should not be cloned.',
+                    'cwa'
                 ),
                 '0.0.1'
             );
@@ -100,8 +100,8 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
             _doing_it_wrong(
                 __FUNCTION__,
                 esc_html__(
-                    'De-serializing instances of the GdIdentity_CloudflareWebAnalytics class is not allowed.',
-                    'cloudflare-web-analytics'
+                    'De-serializing instances of the CWebAnalytics class is not allowed.',
+                    'cwa'
                 ),
                 '0.0.1'
             );
@@ -158,8 +158,8 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
                 }
 
                 // Bail if installed incorrectly.
-                if (! class_exists('\GdIdentity\CloudflareWebAnalytics\Admin')) {
-                    add_action('admin_notices', [ $this, 'gdidentity_cwa_missing_notice' ]);
+                if (! class_exists('\CWebAnalytics\Admin')) {
+                    add_action('admin_notices', [ $this, 'missing_notice' ]);
                     return false;
                 }
             }
@@ -172,7 +172,7 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
          *
          * @since 0.0.1
          */
-        public function gdidentity_cwa_missing_notice(): void
+        public function missing_notice(): void
         {
             if (! current_user_can('manage_options')) {
                 return;
@@ -194,7 +194,7 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
         {
 
             // Setup filters.
-            \GdIdentity\CloudflareWebAnalytics\Admin::init();
+            \CWebAnalytics\Admin::init();
         }
 
         /**
@@ -206,7 +206,7 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
         {
 
             // Setup filters.
-            \GdIdentity\CloudflareWebAnalytics\Api::init();
+            \CWebAnalytics\Api::init();
         }
 
         /**
@@ -218,7 +218,7 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
         {
 
             // Setup filters.
-            \GdIdentity\CloudflareWebAnalytics\Widget::render();
+            \CWebAnalytics\Widget::render();
         }
 
         /**
@@ -231,7 +231,7 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
 
             // Setup Settings link.
             add_filter('plugin_action_links_' . plugin_basename(__FILE__), function ($links) {
-                $links[] = '<a href="/wp-admin/admin.php?page=cloudflare-web-analytics">Settings</a>';
+                $links[] = '<a href="/wp-admin/admin.php?page=c-web-analytics">Settings</a>';
 
                 return $links;
             });
@@ -240,4 +240,4 @@ if (! class_exists('GdIdentity_CloudflareWebAnalytics')) :
 
 endif;
 
-\GdIdentity_CloudflareWebAnalytics::instance();
+\CWA::instance();

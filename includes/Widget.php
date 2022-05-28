@@ -1,8 +1,8 @@
 <?php
 
-namespace GdIdentity\CloudflareWebAnalytics;
+namespace CWebAnalytics;
 
-use GdIdentity\CloudflareWebAnalytics\Settings;
+use CWebAnalytics\Settings;
 
 class Widget
 {

@@ -7,14 +7,14 @@ namespace Composer\Autoload;
 class ComposerStaticInit50b6a91901d01585350788841a215458
 {
     public static $prefixLengthsPsr4 = array (
-        'G' => 
+        'C' => 
         array (
-            'GdIdentity\\CloudflareWebAnalytics\\' => 34,
+            'CWebAnalytics\\' => 14,
         ),
     );
 
     public static $prefixDirsPsr4 = array (
-        'GdIdentity\\CloudflareWebAnalytics\\' => 
+        'CWebAnalytics\\' => 
         array (
             0 => __DIR__ . '/../..' . '/includes',
         ),
