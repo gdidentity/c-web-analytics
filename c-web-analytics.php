@@ -5,7 +5,7 @@
  * Plugin Name:       	Web Analytics
  * Plugin URI: 			https://github.com/gdidentity/c-web-analytics
  * GitHub Plugin URI: 	https://github.com/gdidentity/c-web-analytics
- * Description:       	Display Cloudflare Web Analytics in your Wordpress admin.
+ * Description:       	Cloudflare Web Analytics in your Wordpress admin.
  * Version:           	1.0.0
  * Author:            	GD IDENTITY
  * Author URI:        	https://gdidentity.sk
