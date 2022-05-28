@@ -6,7 +6,7 @@
  * Plugin URI: 			https://github.com/gdidentity/c-web-analytics
  * GitHub Plugin URI: 	https://github.com/gdidentity/c-web-analytics
  * Description:       	Cloudflare Web Analytics in your Wordpress admin.
- * Version:           	1.0.0
+ * Version:           	1.0.2
  * Author:            	GD IDENTITY
  * Author URI:        	https://gdidentity.sk
  * Text Domain:       	cwa
@@ -19,12 +19,12 @@
 defined('ABSPATH') || exit;
 
 
-if (! class_exists('CWA')) :
+if (! class_exists('CWebAnalytics')) :
 
     /**
-     * This is the one true CWA class
+     * This is the one true CWebAnalyticsPlugin class
      */
-    final class CWA
+    final class CWebAnalytics
     {
 
         /**
@@ -43,7 +43,7 @@ if (! class_exists('CWA')) :
          *
          * @return CWebAnalytics The one true CWebAnalytics
          */
-        public static function instance()
+        public static function instance(): self
         {
             if (! isset(self::$instance) && ! (is_a(self::$instance, __CLASS__))) {
                 self::$instance = new self();
@@ -116,28 +116,28 @@ if (! class_exists('CWA')) :
         {
 
             // Plugin version.
-            if (! defined('CWA_VERSION')) {
-                define('CWA_VERSION', '1.0.0');
+            if (! defined('CWebAnalytics_VERSION')) {
+                define('CWebAnalytics_VERSION', '1.0.2');
             }
 
             // Plugin Folder Path.
-            if (! defined('CWA_PLUGIN_DIR')) {
-                define('CWA_PLUGIN_DIR', plugin_dir_path(__FILE__));
+            if (! defined('CWebAnalytics_PLUGIN_DIR')) {
+                define('CWebAnalytics_PLUGIN_DIR', plugin_dir_path(__FILE__));
             }
 
             // Plugin Folder URL.
-            if (! defined('CWA_PLUGIN_URL')) {
-                define('CWA_PLUGIN_URL', plugin_dir_url(__FILE__));
+            if (! defined('CWebAnalytics_PLUGIN_URL')) {
+                define('CWebAnalytics_PLUGIN_URL', plugin_dir_url(__FILE__));
             }
 
             // Plugin Root File.
-            if (! defined('CWA_PLUGIN_FILE')) {
-                define('CWA_PLUGIN_FILE', __FILE__);
+            if (! defined('CWebAnalytics_PLUGIN_FILE')) {
+                define('CWebAnalytics_PLUGIN_FILE', __FILE__);
             }
 
             // Whether to autoload the files or not.
-            if (! defined('CWA_AUTOLOAD')) {
-                define('CWA_AUTOLOAD', true);
+            if (! defined('CWebAnalytics_AUTOLOAD')) {
+                define('CWebAnalytics_AUTOLOAD', true);
             }
         }
 
@@ -152,9 +152,9 @@ if (! class_exists('CWA')) :
         {
 
             // Autoload Required Classes.
-            if (defined('CWA_AUTOLOAD') && false !== CWA_AUTOLOAD) {
-                if (file_exists(CWA_PLUGIN_DIR . 'vendor/autoload.php')) {
-                    require_once CWA_PLUGIN_DIR . 'vendor/autoload.php';
+            if (defined('CWebAnalytics_AUTOLOAD') && false !== CWebAnalytics_AUTOLOAD) {
+                if (file_exists(CWebAnalytics_PLUGIN_DIR . 'vendor/autoload.php')) {
+                    require_once CWebAnalytics_PLUGIN_DIR . 'vendor/autoload.php';
                 }
 
                 // Bail if installed incorrectly.
@@ -168,7 +168,7 @@ if (! class_exists('CWA')) :
         }
 
         /**
-         * Cloudflare Web Analytics missing notice.
+         * Composer dependencies missing notice.
          *
          * @since 0.0.1
          */
@@ -179,7 +179,7 @@ if (! class_exists('CWA')) :
             } ?>
 			<div class="notice notice-error">
 				<p>
-					<?php esc_html_e('Cloudflare Web Analytics appears to have been installed without its dependencies. It will not work properly until dependencies are installed. This likely means you have cloned Cloudflare Web Analytics from Github and need to run the command `composer install`.', 'cwa'); ?>
+					<?php esc_html_e('Web Analytics appears to have been installed without its dependencies. It will not work properly until dependencies are installed. This likely means you have cloned Cloudflare Web Analytics from Github and need to run the command `composer install`.', 'cwa'); ?>
 				</p>
 			</div>
 			<?php
@@ -240,4 +240,4 @@ if (! class_exists('CWA')) :
 
 endif;
 
-\CWA::instance();
+\CWebAnalytics::instance();
