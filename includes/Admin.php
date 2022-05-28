@@ -2,8 +2,6 @@
 
 namespace GdIdentity\CloudflareWebAnalytics;
 
-use GdIdentity\CloudflareWebAnalytics\Settings;
-
 class Admin
 {
     private static $option = 'cwa';

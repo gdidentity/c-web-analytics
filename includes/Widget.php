@@ -44,7 +44,7 @@ class Widget
     {
         echo '<div id="cwa"></div>';
 
-        $assets_path = CWA_PLUGIN_URL . 'build/';
+        $assets_path = CWA_PLUGIN_URL . 'widget/build/';
         $manifest = $assets_path . 'asset-manifest.json?nocache=' . mt_rand();
         $str = file_get_contents($manifest);
         $json = json_decode($str, true);
