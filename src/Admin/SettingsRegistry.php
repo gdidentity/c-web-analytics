@@ -396,7 +396,7 @@ class SettingsRegistry {
 		$size        = isset( $args['size'] ) && ! is_null( $args['size'] ) ? $args['size'] : 'regular';
 		$placeholder = empty( $args['placeholder'] ) ? '' : ' placeholder="' . $args['placeholder'] . '"';
 
-		$html  = sprintf( '<textarea rows="5" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value );
+		$html  = sprintf( '<textarea rows="10" cols="55" class="%1$s-text" id="%2$s[%3$s]" name="%2$s[%3$s]"%4$s>%5$s</textarea>', $size, $args['section'], $args['id'], $placeholder, $value );
 		$html .= $this->get_field_description( $args );
 
 		echo wp_kses( $html, $this->get_allowed_wp_kses_html() );
@@ -834,6 +834,8 @@ class SettingsRegistry {
 			'checked'    => [],
 			'disabled'   => [],
 			'selected'   => [],
+			'placeholder'   => [],
+			'rows'   => [],
 		];
 
 		return [
