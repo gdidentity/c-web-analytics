@@ -3,6 +3,7 @@
 namespace CWebAnalytics;
 
 use CWebAnalytics\Admin\Settings;
+use CWebAnalytics\Helpers;
 
 class Widget {
 
@@ -57,7 +58,7 @@ class Widget {
 
 		wp_localize_script('cwa-1', 'cwaSettings', [
 			'slug'           => esc_html( $slug ),
-			'frontendDomain' => esc_html( Settings::get( 'frontendDomain', $_SERVER['SERVER_NAME'] ) ),
+			'frontendDomain' => esc_html( Settings::get( 'frontendDomain', Helpers::getDomain() ) ),
 		]);
 	}
 }

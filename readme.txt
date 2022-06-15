@@ -3,7 +3,7 @@ Contributors: bebjakub
 Tags: cloudflare, web, analytics
 Requires at least: 4.7
 Tested up to: 6.0
-Stable tag: 1.0.4
+Stable tag: 1.0.5
 Requires PHP: 5.6
 License: GPL-3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -21,6 +21,9 @@ Plugin requires Cloudflare with Web Analytics enabled.
 3. Fill out Cloudflare credentials in Settings -> Cloudflare Web Analytics
 
 == Changelog ==
+
+= 1.0.5 =
+- minor fixes
 
 = 1.0.4 =
 - tested support for WP 6.0

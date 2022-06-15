@@ -3,6 +3,7 @@
 namespace CWebAnalytics\Admin;
 
 use CWebAnalytics\Admin\SettingsRegistry;
+use CWebAnalytics\Helpers;
 
 class Settings {
 
@@ -79,7 +80,7 @@ class Settings {
 				'name'    => 'frontendDomain',
 				'label'   => __( 'Frontend Domain', 'cwa' ),
 				'type'    => 'text',
-				'default' => $_SERVER['SERVER_NAME'],
+				'default' => Helpers::getDomain(),
 			],
 		] );
 
@@ -101,7 +102,7 @@ class Settings {
 	 */
 	public function render_settings_page() {
 		if ( ! current_user_can( 'manage_options' ) ) {
-			wp_die( __( 'You do not have sufficient permissions to access this page.' ) );
+			wp_die( esc_html__( 'You do not have sufficient permissions to access this page.', 'c-web-analytics' ) );
 		}
 		?>
 		<div class="wrap">

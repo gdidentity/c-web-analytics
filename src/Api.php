@@ -210,10 +210,11 @@ class Api {
 		);
 
 		$posts = get_posts([
-			'posts_per_page' => -1,
-			'post_type'      => 'post',
-			'post_name__in'  => $slugs,
-			'meta_query'     => [ [ 'key' => '_thumbnail_id' ] ],
+			'posts_per_page'   => -1,
+			'post_type'        => 'post',
+			'post_name__in'    => $slugs,
+			'suppress_filters' => false,
+			'meta_query'       => [ [ 'key' => '_thumbnail_id' ] ],
 		]);
 
 		$posts_with_count = [];
@@ -256,7 +257,7 @@ class Api {
 								'siteTag_in' => [ Settings::get( 'siteTag' ) ],
 							],
 							[
-								'requestHost' => Settings::get( 'frontendDomain', $_SERVER['SERVER_NAME'] ),
+								'requestHost' => Settings::get( 'frontendDomain', Helpers::getDomain() ),
 							],
 						],
 						$variables
