@@ -66,7 +66,7 @@ class Api {
 			],
 		];
 
-		return self::graphql( $query, $variables )->topPaths;
+		return self::graphql( $query, $variables )['topPaths'] ?: [];
 	}
 
 	public static function stats( $slug, $from, $to, $limit ) {
@@ -192,10 +192,10 @@ class Api {
 	public static function mostReadPosts( $days = 30, $limit = 3 ) {
 		$counts_with_slug = array_map(
 			function ( $item ) {
-				$slug = trim( $item->dimensions->metric, '/' );
+				$slug = trim( $item['dimensions']['metric'], '/' );
 
 				return (object) [
-					'count' => $item->count,
+					'count' => $item['count'],
 					'slug'  => $slug,
 				];
 			},
