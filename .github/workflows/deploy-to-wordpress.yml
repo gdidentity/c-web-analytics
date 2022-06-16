@@ -19,6 +19,8 @@ jobs:
       - name: Install PHP dependencies
         run: |
           composer install --no-dev --optimize-autoloader
+      - name: Check Wordpress Coding Standards
+        run: composer run-script phpcs
       - name: WordPress Plugin Deploy
         uses: 10up/action-wordpress-plugin-deploy@stable
         env:
