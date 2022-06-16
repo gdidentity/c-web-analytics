@@ -25,7 +25,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SVN_PASSWORD: ${{ secrets.SVN_PASSWORD }}
           SVN_USERNAME: ${{ secrets.SVN_USERNAME }}
-          SLUG: wp-graphql
+          SLUG: c-web-analytics
       - name: Create Artifact
         run: |
           mkdir plugin-build
@@ -33,7 +33,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v2
         with:
-          name: wp-graphql
+          name: c-web-analytics
           path: plugin-build/c-web-analytics.zip
       - name: Upload release asset
         uses: softprops/action-gh-release@v1
