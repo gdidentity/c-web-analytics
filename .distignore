@@ -3,6 +3,7 @@
 /.wordpress-org
 
 .distignore
+.gitignore
 .editorconfig
 composer.json
 composer.lock
