@@ -33,5 +33,12 @@
 		"phpcbf": [
 			"php ./vendor/bin/phpcbf"
 		]
-    }
+    },
+	"archive": {
+		"exclude": [
+			"*.yml",
+			"!vendor/",
+			"plugin-build/"
+		]
+	}
 }
