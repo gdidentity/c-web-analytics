@@ -18,6 +18,9 @@
             "dealerdirect/phpcodesniffer-composer-installer": true
         }
     },
+    "require": {
+		"php": "^7.4 || ^8.1"
+	},
     "require-dev": {
         "automattic/vipwpcs": "^2.3",
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
@@ -38,7 +41,8 @@
 		"exclude": [
 			"*.yml",
 			"!vendor/",
-			"plugin-build/"
+			"plugin-build/",
+            "!.wordpress-org/"
 		]
 	}
 }

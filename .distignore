@@ -1,0 +1,9 @@
+/.wordpress-org
+
+.distignore
+.editorconfig
+composer.json
+composer.lock
+LICENSE.md
+phpcs.xml.dist
+README.md
