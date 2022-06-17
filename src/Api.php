@@ -280,7 +280,7 @@ class Api {
 
 		$response_data = ( ! is_wp_error( $response ) ) ? $body : null;
 
-		if ( $response->errors ) {
+		if ( isset( $response->errors ) ) {
 			return new WP_Error( 'cloudflare-error', $response->errors[0]->message, [ 'status' => $response->errors[0]->code ] );
 		}
 
