@@ -12,7 +12,9 @@ License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
 Cloudflare Web Analytics in your Wordpress admin.
 
-Plugin requires Cloudflare with Web Analytics enabled.
+Plugin requires Cloudflare account with Web Analytics enabled.
+
+Feel free to create PR to [plugin Github repo](https://github.com/gdidentity/c-web-analytics).
 
 == Installation ==
 
