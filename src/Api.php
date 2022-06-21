@@ -227,7 +227,7 @@ class Api {
 				}
 			}
 
-			if ( $current_post ) {
+			if ( $current_post && ! array_search( $current_post->ID, array_column( $posts_with_count, 'id' ), true ) ) {
 				$posts_with_count[] = (object) [
 					'id'        => $current_post->ID,
 					'title'     => $current_post->post_title,
