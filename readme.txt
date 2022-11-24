@@ -3,7 +3,7 @@ Contributors: bebjakub
 Tags: cloudflare, web, analytics
 Requires at least: 4.7
 Tested up to: 6.0
-Stable tag: 1.0.18
+Stable tag: 1.0.19
 Requires PHP: 5.6
 License: GPL-3
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
@@ -24,7 +24,7 @@ Feel free to create PR to [plugin Github repo](https://github.com/gdidentity/c-w
 
 == Changelog ==
 
-= 1.0.18 =
+= 1.0.19 =
 - minor fixes
 
 = 1.0.15 =
