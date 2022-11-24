@@ -73,9 +73,7 @@ function App() {
         let response = await fetch(`${wpApiSettings?.root}${endpoint}?from=${from}&to=${to}&limit=${limit}${slug}`, {
           headers
         }).catch(() => setIsLoading(false))
-        // const response = await fetch('/mock.json')
         const stats = await response?.json()
-        console.log(stats)
 
         setStats(stats)
         setIsLoading(false)
