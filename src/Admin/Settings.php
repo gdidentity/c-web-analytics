@@ -75,7 +75,7 @@ class Settings {
 				'name'  => 'siteTag',
 				'label' => __( 'Site Tag', 'cwa' ),
 				'type'  => 'text',
-				'desc'	=> "You'll find it in the Site analytics URL <code>https://dash.cloudflare.com/[ACCOUNT_ID]/web-analytics/overview?siteTag~in=[SITE_TAG]</code>"
+				'desc'  => "You'll find it in the Site analytics URL <code>https://dash.cloudflare.com/[ACCOUNT_ID]/web-analytics/overview?siteTag~in=[SITE_TAG]</code>",
 			],
 			[
 				'name'    => 'frontendDomain',
